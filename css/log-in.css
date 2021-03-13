@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+/* global css */
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background: #073546;
+}
+
+
+.input-image{
+   width: 20px;
+}
+
+.pos-p{
+   color: #FFFFFF;
+   text-align: center;
+   margin-top: 2rem;
+   font-size: 1.5rem;
+   margin-bottom: 1.8rem;
+}
+
+.pos{
+   margin-top: 0;
+}
+
+.avon-logo{
+   color: #FFFFFF;
+   letter-spacing: 5px;
+   text-align: center;
+   margin-top: 2rem;
+   font-size: 2.5rem;
+}
+
+.form-container{
+   background: #FFFFFF;
+   width: 70%;
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 1.5rem 2rem;
+}
+
+.top-log-in{
+   flex-direction: row;
+   color: #FFFFFF;
+   background: #083E52;
+   font-size: 0.8rem;
+   width: 70%;
+   max-width: 600px;
+   padding: 1.2rem;
+   margin: 0 auto;
+   letter-spacing: 2px;
+   
+}
+
+.flex-container{
+   display: flex;
+   margin-top: 5px;
+   align-items: center;
+
+}
+.flex-container p{
+   margin-left: 15px;
+   font-size: 0.8rem;
+}
+
+input{
+   margin: 13px 0;
+   font-size: 1rem;
+}
+
+.password, .username{
+   border: none;
+   border-bottom: 2px #f6f6f6 solid;
+   width: 100%;
+
+}
+
+input:focus{
+   outline: none;
+}
+
+.password:focus, .username:focus{
+   border-bottom-color: #39D3B0;
+}
+
+.log-in-bt{
+   width: 100%;
+   margin: 0 auto;
+   margin-top: 5px;
+}
+
+.log-in-bt button {
+   color: #fff;
+   text-transform: uppercase;
+   text-decoration: none;
+   background: #39D3B0;
+   padding: 15px;
+   border-radius: 5px;
+   display: inline-block;
+   border: none;
+   transition: all 0.4s ease 0s;
+   width: 100%;
+   }
+
+.log-in-bt button:hover{
+    letter-spacing: 2px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+
+
+.log-in-result{
+   color: red;
+   margin-top: 2.5rem;
+   text-align: center;
+}
+
+
+
+@media (min-width:1280px){
+
+   .top-log-in{
+      width: 50%;
+   }
+
+   .form-container{
+      width: 50%;
+   }
+}
+
+/* 
+tablet devices
+
+@media(min-width:426px) and (max-width:768px){
+
+   .pos-p{
+      left: 25%;
+      font-size: 2.5rem;
+   }
+
+   .top-log-in{
+      width: 60%;
+      left: 22%;
+      top: 27.8%;
+   }
+
+   .form-container{
+      width: 60%;
+      left: 22%;
+   }
+
+}
+
+
+
+
+smartphone devices media queries
+
+ L mobile phones
+
+@media(min-width:376px) and (max-width:425px){
+   .pos-p{
+      font-size: 1.7rem;
+      left: 16%;
+      top: 17%;
+   }
+
+   .form-container{
+      width: 60%;
+      left: 21%;
+   }
+
+   .top-log-in{
+      width: 60%;
+      left: 21%;
+      top: 27.9%;
+      font-size: 0.9rem;
+   }
+
+  .log-in-bt{
+     width: 50%;
+  }
+}
+
+
+medium phones
+
+@media(min-width:321px) and (max-width:375px){
+   .pos-p{
+      font-size: 1.6rem;
+      left: 13%;
+      top: 17%;
+   }
+
+   .form-container{
+      width: 60%;
+      left: 21%;
+   }
+
+   .top-log-in{
+      width: 60%;
+      left: 21%;
+      top: 27.9%;
+      font-size: 0.9rem;
+   }
+
+  .log-in-bt{
+     width: 60%;
+  }
+}
+
+small phones 
+
+@media(max-width:320px){
+   .pos-p{
+      font-size: 1.3rem;
+      left: 13%;
+      top: 17%;
+   }
+
+   .form-container{
+      width: 70%;
+      left: 16%;
+      top: 34%;
+   }
+
+   .top-log-in{
+      width: 70%;
+      left: 16%;
+      top: 26.5%;
+      font-size: 0.9rem;
+   }
+
+  .log-in-bt{
+     width: 60%;
+  }
+} 
+
+
+ */
+
+
+
+
