@@ -42,7 +42,7 @@
                </li>
             </ul>
             <!-- sign out -->
-            <a href="/root/index.php" class="small-box-footer btn btn-danger">Sign out <i class="fas fa-sign-out-alt"></i></a>
+            <a href="/pos-system-project/index.php" class="small-box-footer btn btn-danger">sign out <i class="fas fa-sign-out-alt"></i></a>
          </nav>
          <!-- /.navbar -->
          <!-- Main Sidebar Container -->
@@ -128,7 +128,7 @@
                   <div class="row" style="justify-content: space-evenly;">
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-maroon"> 
+                        <div class="small-box bg-danger" style="border-top-left-radius: 10px"> 
                            <div class="inner">
                               <h3>75</h3>
                               <p>Products</p>
@@ -142,7 +142,7 @@
                      <!-- ./col -->
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success">
+                        <div class="small-box bg-success" style="border-top-left-radius: 10px">
                            <div class="inner">
                               <h3>53</h3>
                               <p>Sales</p>
@@ -156,7 +156,7 @@
                      <!-- ./col -->
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-primary">
+                        <div class="small-box bg-primary" style="border-top-left-radius: 10px">
                            <div class="inner">
                               <h3>SALES</h3>
                               <p>Report Generation</p>
