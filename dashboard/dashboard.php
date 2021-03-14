@@ -30,6 +30,8 @@
       <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
       <!-- summernote -->
       <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+   
+
    </head>
    <body class="hold-transition sidebar-mini">
       <div class="wrapper">
@@ -38,24 +40,28 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link" data-widget="pushmenu" href="#" role="button" style="color: #fff"><i class="fas fa-bars"></i></a>
+                  <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars nav-fas" style="color: #fff"></i></a>
                </li>
+               <div class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="lightMode()">
+                  <label class="custom-control-label switch" for="customSwitch1"><i class="fas fa-lightbulb bulb" style="color:#fff"></i></label>
+               </div>
             </ul>
             <!-- sign out -->
-            <a href="/pos-system-project/index.php" class="small-box-footer btn btn-danger">sign out <i class="fas fa-sign-out-alt"></i></a>
+            <a href="/pos-system-project/index.php" class="btn btn-sm bg-success color-palette btn-log-out"><i class="fas fa-power-off power-off-logo"></i>  Log out</a>
          </nav>
          <!-- /.navbar -->
          <!-- Main Sidebar Container -->
-         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#073546">
+         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #083E52">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link" style="border-bottom:none;">
+            <a href="index3.html" class="brand-link">
             <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8;"> 
             <span class="brand-text font-weight-light" style="display:inline-block;"></span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
                <!-- Sidebar user panel (optional) -->
-               <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="border-top:1px solid #fff; border-bottom:1px solid #fff; padding-top:1rem">
+               <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                   <div class="image">
                      <img src="dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
                   </div>
@@ -76,21 +82,22 @@
                               <!-- <span class="right badge badge-danger">New</span> -->
                            </p>
                         </a>
-                        <a href="#" class="nav-link active" style="background-color: #083E52">
+                           <!-- <button onclick="lightMode()">Toggle light mode</button> -->
+                        <a href="#" class="nav-link active" style="background-color: #073546">
                            <i class="nav-icon fas fa-pen"></i>
                            <p>
                               Product IS
                               <!-- <span class="right badge badge-danger">New</span> -->
                            </p>
                         </a>
-                        <a href="#" class="nav-link active" style="background-color: #083E52">
+                        <a href="#" class="nav-link active" style="background-color: #073546">
                            <i class="nav-icon fas fa-cash-register"></i>
                            <p>
                               Sales IS
                               <!-- <span class="right badge badge-danger">New</span> -->
                            </p>
                         </a>
-                        <a href="#" class="nav-link active" style="background-color: #083E52">
+                        <a href="#" class="nav-link active" style="background-color: #073546">
                            <i class="nav-icon fas fa-chart-area"></i>
                            <p>
                               Report Generation
@@ -105,13 +112,13 @@
             <!-- /.sidebar -->
          </aside>
          <!-- Content Wrapper. Contains page content -->
-         <div class="content-wrapper main-content-white" style="background-color:#073546">
+         <div class="content-wrapper main-content-white page-content" style="background-color:#073546">
             <!-- Content Header (Page header) -->
-            <div class="content-header" style="">
+            <div class="content-header">
                <div class="container-fluid">
                   <div class="row mb-2">
                      <div class="col-sm-6">
-                        <h1 class="m-0" style="color:#fff; font-size: 2rem">Dashboard</h1>
+                        <h1 class="m-0 dashboard-main" style="color:#fff; font-size: 2rem">Dashboard</h1>
                      </div>
                      <!-- /.col -->
                      <!-- /.col -->
@@ -128,7 +135,7 @@
                   <div class="row" style="justify-content: space-evenly;">
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-danger" style="border-top-left-radius: 10px"> 
+                        <div class="small-box bg-danger"> 
                            <div class="inner">
                               <h3>75</h3>
                               <p>Products</p>
@@ -142,7 +149,7 @@
                      <!-- ./col -->
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success" style="border-top-left-radius: 10px">
+                        <div class="small-box bg-success">
                            <div class="inner">
                               <h3>53</h3>
                               <p>Sales</p>
@@ -156,7 +163,7 @@
                      <!-- ./col -->
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-primary" style="border-top-left-radius: 10px">
+                        <div class="small-box bg-primary">
                            <div class="inner">
                               <h3>SALES</h3>
                               <p>Report Generation</p>
@@ -200,7 +207,7 @@
          </aside>
          <!-- /.control-sidebar -->
          <!-- Main Footer -->
-         <footer class="main-footer" style="background-color: #083E52; border-top: none">
+         <footer class="main-footer light-footer" style="background-color: #083E52; border-top: none">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
                <!-- Anything you want -->
@@ -249,5 +256,76 @@
       <script src="dist/js/demo.js"></script>
       <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
       <script src="dist/js/pages/dashboard.js"></script>
+
+      <!-- light mode and dark mode command -->
+      <script>
+
+         var buttonPress = 0;
+
+         function lightMode(){
+
+            buttonPress+=1;
+            
+               if (buttonPress % 2 != 0){
+               navBar = document.querySelector('.navbar-light');
+               navLink = document.querySelector('.nav-fas');
+               buttonLogoutLogo = document.querySelector('.power-off-logo');
+               buttonLogout = document.querySelector('.btn-log-out');
+               mainPageContent = document.querySelector('.page-content');
+               dashboardName = document.querySelector('.dashboard-main');
+               footer = document.querySelector('.light-footer');
+               bulb = document.querySelector('.bulb');
+
+               navBar.style.backgroundColor = '#fff';
+
+               navLink.style.color = '#7F7F7F';
+
+               buttonLogoutLogo.style.color = 'red';
+
+               buttonLogout.classList.add('bg-light');
+
+               mainPageContent.style.backgroundColor = '#F4F6F9';
+
+               dashboardName.style.color = '#083E52';
+
+               footer.style.backgroundColor = '#fff';
+
+               bulb.style.color = "black";
+
+
+            }
+
+            else if (buttonPress % 2 == 0){
+               navBar = document.querySelector('.navbar-light');
+               navLink = document.querySelector('.nav-fas');
+               buttonLogoutLogo = document.querySelector('.power-off-logo');
+               buttonLogout = document.querySelector('.btn-log-out');
+               mainPageContent = document.querySelector('.page-content');
+               dashboardName = document.querySelector('.dashboard-main');
+               footer = document.querySelector('.light-footer');
+               bulb = document.querySelector('.bulb');
+
+               navBar.style.backgroundColor = '#083E52';
+
+               navLink.style.color = '#fff';
+
+               buttonLogoutLogo.style.color = '#fff';
+
+               buttonLogout.classList.remove('bg-light');
+
+               mainPageContent.style.backgroundColor = '#073546';
+
+               dashboardName.style.color = '#fff';
+
+               footer.style.backgroundColor = '#083E52';
+
+               bulb.style.color = "#fff";
+
+            }
+         }
+          </script> 
+
+
+
    </body>
 </html>
