@@ -28960,9 +28960,9 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
   border-radius: 0.25rem;
 }
 
-/* .img-circle {
+.img-circle {
   border-radius: 10%;
-} */
+}
 
 .img-size-64,
 .img-size-50,
