@@ -43,12 +43,12 @@
                   <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars nav-fas" style="color: #fff"></i></a>
                </li>
                <div class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
-                  <input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="lightMode()">
+                  <input type="checkbox" class="custom-control-input btn-switch" id="customSwitch1">
                   <label class="custom-control-label switch" for="customSwitch1"><i class="fas fa-lightbulb bulb" style="color:#fff"></i></label>
                </div>
             </ul>
             <!-- sign out -->
-            <a href="/pos-system-project/index.php" class="btn btn-sm bg-success color-palette btn-log-out"><i class="fas fa-power-off power-off-logo"></i>  Log out</a>
+            <a href="/pos-system-project/index.php" class="btn btn-sm bg-danger color-palette btn-log-out"><i class="fas fa-power-off power-off-logo"></i>  Log out</a>
          </nav>
          <!-- /.navbar -->
          <!-- Main Sidebar Container -->
@@ -57,7 +57,7 @@
             <!-- Brand Logo -->
          <a href="index3.html" class="brand-link">
             <img src="dist/img/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light" style="font-family:'Montserrat', sans-serif;">GEM'S AVON</span>
+            <span class="brand-text font-weight-light">GEM'S AVON</span>
          </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -67,7 +67,7 @@
                      <img src="dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
                   </div>
                   <div class="info">
-                     <a href="#" class="d-block">MANAGER</a>
+                     <a href="#" class="d-block">Manager</a>
                   </div>
                </div>
                <!-- Sidebar Menu -->
@@ -257,74 +257,8 @@
       <script src="dist/js/demo.js"></script>
       <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
       <script src="dist/js/pages/dashboard.js"></script>
-
-      <!-- light mode and dark mode command -->
-      <script>
-
-         var buttonPress = 0;
-
-         function lightMode(){
-
-            buttonPress+=1;
-            
-               if (buttonPress % 2 != 0){
-               navBar = document.querySelector('.navbar-light');
-               navLink = document.querySelector('.nav-fas');
-               buttonLogoutLogo = document.querySelector('.power-off-logo');
-               buttonLogout = document.querySelector('.btn-log-out');
-               mainPageContent = document.querySelector('.page-content');
-               dashboardName = document.querySelector('.dashboard-main');
-               footer = document.querySelector('.light-footer');
-               bulb = document.querySelector('.bulb');
-
-               navBar.style.backgroundColor = '#fff';
-
-               navLink.style.color = '#7F7F7F';
-
-               buttonLogoutLogo.style.color = 'red';
-
-               buttonLogout.classList.add('bg-light');
-
-               mainPageContent.style.backgroundColor = '#F4F6F9';
-
-               dashboardName.style.color = '#083E52';
-
-               footer.style.backgroundColor = '#fff';
-
-               bulb.style.color = "black";
-
-
-            }
-
-            else if (buttonPress % 2 == 0){
-               navBar = document.querySelector('.navbar-light');
-               navLink = document.querySelector('.nav-fas');
-               buttonLogoutLogo = document.querySelector('.power-off-logo');
-               buttonLogout = document.querySelector('.btn-log-out');
-               mainPageContent = document.querySelector('.page-content');
-               dashboardName = document.querySelector('.dashboard-main');
-               footer = document.querySelector('.light-footer');
-               bulb = document.querySelector('.bulb');
-
-               navBar.style.backgroundColor = '#083E52';
-
-               navLink.style.color = '#fff';
-
-               buttonLogoutLogo.style.color = '#fff';
-
-               buttonLogout.classList.remove('bg-light');
-
-               mainPageContent.style.backgroundColor = '#073546';
-
-               dashboardName.style.color = '#fff';
-
-               footer.style.backgroundColor = '#083E52';
-
-               bulb.style.color = "#fff";
-
-            }
-         }
-          </script> 
+      <!-- light mode and dark mode -->
+      <script src="dist/js/light.js"></script> 
 
 
 
