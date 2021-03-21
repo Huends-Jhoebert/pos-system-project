@@ -1,3 +1,6 @@
+
+
+// light mode script
 var buttonSwitch = document.querySelector('.btn-switch').addEventListener('click', lightMode);
 
 var buttonPress = 0;

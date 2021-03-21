@@ -35,6 +35,7 @@
          </div>
       </form>
 
+
    </body>
 </html>
 
@@ -64,6 +65,9 @@
       else{
         echo "<p class='log-in-result'>Wrong Username and Password Plz Try Again</p>";
       }
+
+         //<!-- removing the log in result script
+         echo '<script src="js/remove.js"></script>';
 
    }
 
