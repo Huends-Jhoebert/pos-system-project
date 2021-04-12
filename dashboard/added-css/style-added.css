@@ -1,0 +1,15 @@
+/* change cursor to a pointer of light switch*/
+.light-switch {
+   cursor: pointer;
+}
+
+/* .icon-container {
+   height: 85%;
+} */
+
+/* media queries for smartphones */
+@media only screen and (max-width: 600px) {
+   .inner h3 {
+      font-size: 1rem;
+   }
+}

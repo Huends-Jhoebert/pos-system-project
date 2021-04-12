@@ -30,6 +30,8 @@
       <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
       <!-- summernote -->
       <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+      <!-- my css style -->
+      <link rel="stylesheet" href="added-css/style-added.css">
    
 
    </head>
@@ -44,7 +46,7 @@
                </li>
                <div class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
                   <input type="checkbox" class="custom-control-input btn-switch" id="customSwitch1">
-                  <label class="custom-control-label switch" for="customSwitch1"><i class="fas fa-lightbulb bulb" style="color:#fff"></i></label>
+                  <label class="custom-control-label switch light-switch" for="customSwitch1"><i class="fas fa-lightbulb bulb" style="color:#fff"></i></label>
                </div>
             </ul>
             <!-- sign out -->
@@ -76,7 +78,7 @@
                      <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                      <li class="nav-item">
-                        <a href="#" class="nav-link active" style="background-color: #39D3B0">
+                        <a href="#" class="nav-link active side-icon" style="background-color: #39D3B0">
                            <i class="nav-icon fas fa-th"></i>
                            <p>
                               Dashboard
@@ -84,21 +86,21 @@
                            </p>
                         </a>
                            <!-- <button onclick="lightMode()">Toggle light mode</button> -->
-                        <a href="#" class="nav-link active" style="background-color: #073546">
+                        <a href="#" class="nav-link active side-icon" style="background-color: #073546; ">
                            <i class="nav-icon fas fa-pen"></i>
                            <p>
                               Product IS
                               <!-- <span class="right badge badge-danger">New</span> -->
                            </p>
                         </a>
-                        <a href="#" class="nav-link active" style="background-color: #073546">
+                        <a href="#" class="nav-link active side-icon" style="background-color: #073546">
                            <i class="nav-icon fas fa-cash-register"></i>
                            <p>
                               Sales IS
                               <!-- <span class="right badge badge-danger">New</span> -->
                            </p>
                         </a>
-                        <a href="#" class="nav-link active" style="background-color: #073546">
+                        <a href="#" class="nav-link active side-icon" style="background-color: #073546">
                            <i class="nav-icon fas fa-chart-area"></i>
                            <p>
                               Report Generation
@@ -133,41 +135,74 @@
             <section class="content" >
                <div class="container-fluid">
                   <!-- Small boxes (Stat box) -->
-                  <div class="row" style="justify-content: space-evenly;">
+                  <div class="row" style="justify-content: space-evenly">
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-danger"> 
+                        <!-- product is -->
+                        <div class="small-box bg-danger icon-container"> 
                            <div class="inner">
-                              <h3>75</h3>
-                              <p>Products</p>
+                              <h3>PRODUCT IS</h3>
+                              <h6 style="color: #DC3545;">Products</h6>
                            </div>
                            <div class="icon">
-                              <i class="fas fa-shopping-bag"></i>
+                              <i class="fas fa-pen-alt"></i>
                            </div>
-                           <a href="#" class="small-box-footer">Product IS <i class="fas fa-arrow-circle-right"></i></a>
+                           <a href="#" class="small-box-footer">Add product <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                      </div>
+                     <!-- ./product is -->
                      <!-- ./col -->
+                     <!-- number of products -->
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success">
+                        <div class="small-box bg-maroon"> 
                            <div class="inner">
-                              <h3>53</h3>
-                              <p>Sales</p>
+                              <h3>3</h3>
+                              <h6>PRODUCTS</h6>
+                           </div>
+                           <div class="icon">
+                              <i class="fas fa-box"></i>
+                           </div>
+                           <a href="#" class="small-box-footer">Show products <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                     </div>
+                     <!-- ./number of products -->
+                     <!-- ./col -->
+                     <!-- sales is -->
+                     <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info icon-container">
+                           <div class="inner">
+                              <h3>SALES IS</h3>
+                              <h6 style="color: #17A2B8;">Sales</h6>
                            </div>
                            <div class="icon">
                            <i class="fas fa-cart-plus"></i>
                            </div>
-                           <a href="#" class="small-box-footer">Sales IS <i class="fas fa-arrow-circle-right"></i></a>
+                           <a href="#" class="small-box-footer">Add to cart <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                      </div>
+                       <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-lightblue">
+                           <div class="inner">
+                              <h3>5</h3>
+                              <h6>PRODUCTS SOLD</h6>
+                           </div>
+                           <div class="icon">
+                              <i class="fas fa-people-carry"></i>
+                           </div>
+                           <a href="#" class="small-box-footer">Show sold products <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                     </div>
+                      <!-- ./sales is -->
                      <!-- ./col -->
                      <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-primary">
+                        <div class="small-box bg-success icon-container">
                            <div class="inner">
-                              <h3>SALES</h3>
-                              <p>Report Generation</p>
+                              <h3>SALES REPORT</h3>
+                              <h6 style="color: #28A745;">Report Generation</h6>
                            </div>
                            <div class="icon">
                            <i class="fas fa-chart-bar"></i>
@@ -176,19 +211,19 @@
                         </div>
                      </div>
                      <!-- ./col -->
-                     <!-- <div class="col-lg-3 col-6">
+                     <div class="col-lg-3 col-6">
                         
-                        <div class="small-box bg-danger">
+                        <div class="small-box bg-olive">
                            <div class="inner">
-                              <h3>User</h3>
-                              <p>Sign Out</p>
+                              <h3>₱500</h3>
+                              <h6>AMOUNT EARNED</h6>
                            </div>
                            <div class="icon">
-                           <i class="fas fa-sign-out-alt"></i>
+                            <i class="fas fa-hand-holding-usd"></i>
                            </div>
-                           <a href="#" class="small-box-footer">Now <i class="fas fa-arrow-circle-right"></i></a>
+                           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                     </div> -->
+                     </div>
                      <!-- ./col -->
                   </div>
                   <!-- /.row -->

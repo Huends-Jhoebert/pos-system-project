@@ -17,6 +17,7 @@
       <p class="top-log-in">Sign in</p>
       <form action="index.php" class="form-container" method="post">
          <div class="flex-container">
+            <i class="fas fa-user-circle"></i>
             <img src="images/user.svg" alt="username" class="input-image">
             <p>Username</p>
          </div>
