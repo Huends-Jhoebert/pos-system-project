@@ -7,7 +7,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Gem's Avon | Dashboard</title>
+      <title>Gem's Avon | Product IS</title>
       <!-- Google Font: Source Sans Pro -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
       <!-- Font Awesome Icons -->
@@ -32,8 +32,11 @@
       <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
       <!-- my css style -->
       <link rel="stylesheet" href="added-css/style-added.css">
-   
-
+      <!-- product is css -->
+      <link rel="stylesheet" href="added-css/product-is.css">
+      <!-- bootstrap 5 css -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
    </head>
    <body class="hold-transition sidebar-mini">
       <div class="wrapper">
@@ -44,23 +47,23 @@
                <li class="nav-item">
                   <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars nav-fas" style="color: #fff"></i></a>
                </li>
-               <div class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
+               <!-- <div class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
                   <input type="checkbox" class="custom-control-input btn-switch" id="customSwitch1">
                   <label class="custom-control-label switch light-switch" for="customSwitch1"><i class="fas fa-lightbulb bulb" style="color:#fff"></i></label>
-               </div>
+                  </div> -->
             </ul>
             <!-- sign out -->
-            <a href="/pos-system-project/index.php" class="btn btn-sm bg-danger color-palette btn-log-out"><i class="fas fa-power-off power-off-logo"></i>  Log out</a>
+            <a href="dashboard.php" class="btn btn-sm bg-danger color-palette btn-log-out"><i class="fas fa-arrow-left"></i>  Back</a>
          </nav>
          <!-- /.navbar -->
          <!-- Main Sidebar Container -->
          <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #083E52">
             <!-- Brand Logo -->
             <!-- Brand Logo -->
-         <a href="#" class="brand-link">
+            <a href="#" class="brand-link">
             <img src="dist/img/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">GEM'S AVON</span>
-         </a>
+            </a>
             <!-- Sidebar -->
             <div class="sidebar">
                <!-- Sidebar user panel (optional) -->
@@ -78,15 +81,15 @@
                      <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                      <li class="nav-item">
-                        <a href="#" class="nav-link active side-icon" style="background-color: #39D3B0">
+                        <a href="#" class="nav-link active side-icon" style="background-color: #073546">
                            <i class="nav-icon fas fa-th"></i>
                            <p>
                               Dashboard
                               <!-- <span class="right badge badge-danger">New</span> -->
                            </p>
                         </a>
-                           <!-- <button onclick="lightMode()">Toggle light mode</button> -->
-                        <a href="#" class="nav-link active side-icon" style="background-color: #073546; ">
+                        <!-- <button onclick="lightMode()">Toggle light mode</button> -->
+                        <a href="#" class="nav-link active side-icon" style="background-color: #39D3B0; ">
                            <i class="nav-icon fas fa-pen"></i>
                            <p>
                               Product IS
@@ -115,13 +118,56 @@
             <!-- /.sidebar -->
          </aside>
          <!-- Content Wrapper. Contains page content -->
+         <section class="content">
          <div class="content-wrapper main-content-white page-content" style="background-color:#073546">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                <div class="container-fluid">
                   <div class="row mb-2">
                      <div class="col-sm-6">
-                        <h1 class="m-0 dashboard-main" style="color:#fff; font-size: 2rem">Dashboard</h1>
+                        <h1 class="m-0 dashboard-main" style="color:#fff; font-size: 2rem">PRODUCT LIST</h1>
+                        <!-- Button trigger modal -->
+                     </div>
+                     <!-- Large modal -->
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                     <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                           <div class="modal-header" style="padding: 0.5rem;">
+                              <h5>ADD PRODUCT FORM</h5>
+                           </div>
+                           <form>
+                              <div class="product-code">
+                                 <input type="text" name="product code" id="product-code" placeholder="product code">
+                              </div>
+                              <div class="short-name">
+                                 <input type="text" name="short name" id="short-name" placeholder="short name">
+                              </div>
+                              <div class="text-area">
+                                 <textarea id="text-area" name="text area" rows="4" cols="50" placeholder="description"></textarea>
+                              </div>
+                              <div class="price-category">
+                                 <div class="price">
+                                    <input type="number" name="price" id="price" placeholder="price">
+                                 </div>
+                                 <div class="category">
+                                    <label for="cars">Category</label>
+                                    <select name="category" id="category">
+                                       <option value="deodorant">DEODORANT</option>
+                                       <option value="hand-body-lotion">HAND AND BODY LOTION</option>
+                                       <option value="bath-soap">BATH SOAP</option>
+                                       <option value="jewelry">JEWELRY</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </form>
+                           <div class="modal-footer" style="padding: 0.5rem;">
+                              <button class="rounded-pill btn btn-primary">ADD</button>
+                              <button class="rounded-pill btn btn-danger">CANCEL</button>
+                           </div>
+                        </div>
+                     </div>
                      </div>
                      <!-- /.col -->
                      <!-- /.col -->
@@ -135,101 +181,84 @@
             <section class="content" >
                <div class="container-fluid">
                   <!-- Small boxes (Stat box) -->
-                  <div class="row" style="justify-content: space-evenly">
-                     <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <!-- product is -->
-                        <div class="small-box bg-danger icon-container"> 
-                           <div class="inner">
-                              <h3>PRODUCT IS</h3>
-                              <h6 style="color: #DC3545;">Products</h6>
-                           </div>
-                           <div class="icon">
-                              <i class="fas fa-pen-alt"></i>
-                           </div>
-                           <a href="product-is.php" class="small-box-footer">Add product <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
+                  <div class="card">
+                     <!-- <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                        </div> -->
+                     <!-- /.card-header -->
+                     <div class="card-body">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                           <thead>
+                              <tr>
+                                 <th>Product Code</th>
+                                 <th>Short Name</th>
+                                 <th>Price</th>
+                                 <th>Category</th>
+                                 <th>Status</th>
+                                 <th>Actions</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>LO-01-WT</td>
+                                 <td>SSS LOTION</td>
+                                 <td>₱150</td>
+                                 <td>HAND AND BODY LOTION</td>
+                                 <td>X</td>
+                                 <td class="actions-btn">
+                                    <button class="rounded-pill btn btn-success">view</button>
+                                    <button class="rounded-pill btn btn-primary">update</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>WTH-01-WG</td>
+                                 <td>CTB WATCH</td>
+                                 <td>₱5000</td>
+                                 <td>JEWELRY</td>
+                                 <td>X</td>
+                                 <td class="actions-btn">
+                                    <button class="rounded-pill btn btn-success">view</button>
+                                    <button class="rounded-pill btn btn-primary">update</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>NAT-120g-GRPACL</td>
+                                 <td>NW SOAP</td>
+                                 <td>₱99</td>
+                                 <td>BATH SOAP</td>
+                                 <td>X</td>
+                                 <td class="actions-btn">
+                                    <button class="rounded-pill btn btn-success">view</button>
+                                    <button class="rounded-pill btn btn-primary">update</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>AV-01-IN</td>
+                                 <td>AVIM DEO</td>
+                                 <td>₱170</td>
+                                 <td>DEODORANT</td>
+                                 <td>X</td>
+                                 <td class="actions-btn">
+                                    <button class="rounded-pill btn btn-success">view</button>
+                                    <button class="rounded-pill btn btn-primary">update</button>
+                                 </td>
+                              </tr>
+                           <tfoot>
+                              <tr>
+                                 <th>Product Code</th>
+                                 <th>Short Name</th>
+                                 <th>Price</th>
+                                 <th>Category</th>
+                                 <th>Status</th>
+                                 <th>Actions</th>
+                              </tr>
+                           </tfoot>
+                        </table>
                      </div>
-                     <!-- ./product is -->
-                     <!-- ./col -->
-                     <!-- number of products -->
-                     <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-maroon"> 
-                           <div class="inner">
-                              <h3>3</h3>
-                              <h6>PRODUCTS</h6>
-                           </div>
-                           <div class="icon">
-                              <i class="fas fa-box"></i>
-                           </div>
-                           <a href="#" class="small-box-footer">Show products <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                     </div>
-                     <!-- ./number of products -->
-                     <!-- ./col -->
-                     <!-- sales is -->
-                     <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info icon-container">
-                           <div class="inner">
-                              <h3>SALES IS</h3>
-                              <h6 style="color: #17A2B8;">Sales</h6>
-                           </div>
-                           <div class="icon">
-                           <i class="fas fa-cart-plus"></i>
-                           </div>
-                           <a href="#" class="small-box-footer">Add to cart <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                     </div>
-                       <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-lightblue">
-                           <div class="inner">
-                              <h3>5</h3>
-                              <h6>PRODUCTS SOLD</h6>
-                           </div>
-                           <div class="icon">
-                              <i class="fas fa-people-carry"></i>
-                           </div>
-                           <a href="#" class="small-box-footer">Sold products <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                     </div>
-                      <!-- ./sales is -->
-                     <!-- ./col -->
-                     <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success icon-container">
-                           <div class="inner">
-                              <h3>SALES REPORT</h3>
-                              <h6 style="color: #28A745;">Report Generation</h6>
-                           </div>
-                           <div class="icon">
-                           <i class="fas fa-chart-bar"></i>
-                           </div>
-                           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                     </div>
-                     <!-- ./col -->
-                     <div class="col-lg-3 col-6">
-                        
-                        <div class="small-box bg-olive">
-                           <div class="inner">
-                              <h3>₱500</h3>
-                              <h6>AMOUNT EARNED</h6>
-                           </div>
-                           <div class="icon">
-                            <i class="fas fa-hand-holding-usd"></i>
-                           </div>
-                           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                     </div>
-                     <!-- ./col -->
+                     <!-- /.card-body -->
                   </div>
-                  <!-- /.row -->
                   <!-- Main row -->
                </div>
-               <!-- /.container-fluid -->
             </section>
          </div>
          <!-- /.content-wrapper -->
@@ -294,8 +323,10 @@
       <script src="dist/js/pages/dashboard.js"></script>
       <!-- light mode and dark mode -->
       <script src="dist/js/light.js"></script> 
-
-
-
+      <!-- data table -->
+      <script src="dist/js/data-table.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
    </body>
 </html>

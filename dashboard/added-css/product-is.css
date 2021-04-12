@@ -1,0 +1,33 @@
+.modal-content form {
+   padding: 1rem;
+}
+
+.price-category {
+   display: flex;
+}
+
+.category select {
+   border: none;
+}
+
+.category {
+   margin-left: 1rem;
+   border: 1px solid black;
+}
+
+.modal-footer {
+   margin-top: 5rem;
+}
+
+/* align center the text in table */
+table {
+   text-align: center;
+}
+
+.mb-2 {
+   justify-content: space-between;
+}
+
+footer {
+   margin-top: 0;
+}
