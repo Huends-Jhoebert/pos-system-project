@@ -164,7 +164,7 @@
                            </form>
                            <div class="modal-footer" style="padding: 0.5rem;">
                               <button class="rounded-pill btn btn-primary">ADD</button>
-                              <button class="rounded-pill btn btn-danger">CANCEL</button>
+                              <button class="rounded-pill btn btn-danger" data-dismiss="modal">CANCEL</button>
                            </div>
                         </div>
                      </div>
