@@ -38,6 +38,16 @@
    <!-- bootstrap 5 css -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+   <style>
+      .actions-btn {
+         display: flex;
+         justify-content: space-evenly;
+      }
+
+      .actions-btn button:last-child {
+         margin-left: 10px;
+      }
+   </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -55,7 +65,6 @@
                   </div> -->
          </ul>
          <!-- sign out -->
-         <a href="dashboard.php" class="btn btn-sm bg-danger color-palette btn-log-out"><i class="fas fa-arrow-left"></i> Back</a>
       </nav>
       <!-- /.navbar -->
       <!-- Main Sidebar Container -->
@@ -83,7 +92,7 @@
                   <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                   <li class="nav-item">
-                     <a href="#" class="nav-link active side-icon" style="background-color: #073546">
+                     <a href="dashboard.php" class="nav-link active side-icon" style="background-color: #073546">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                            Dashboard
@@ -98,7 +107,7 @@
                            <!-- <span class="right badge badge-danger">New</span> -->
                         </p>
                      </a>
-                     <a href="#" class="nav-link active side-icon" style="background-color: #073546">
+                     <a href="sales-is.php" class="nav-link active side-icon" style="background-color: #073546">
                         <i class="nav-icon fas fa-cash-register"></i>
                         <p>
                            Sales IS
@@ -139,35 +148,42 @@
                               <div class="modal-header" style="padding: 0.5rem;">
                                  <h5>ADD PRODUCT FORM</h5>
                               </div>
-                              <form>
-                                 <div class="product-code">
-                                    <input type="text" name="product code" id="product-code" placeholder="product code">
+                              <form action="getModalForm.php" method="POST">
+                                 <div class="form-group" style="width: 50%;">
+                                    <label for="exampleFormControlInput1">Product Code</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="productCode">
                                  </div>
-                                 <div class="short-name">
-                                    <input type="text" name="short name" id="short-name" placeholder="short name">
+                                 <div class="form-group" style="width: 50%;">
+                                    <label for="exampleFormControlInput1">Short Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="shortName">
                                  </div>
-                                 <div class="text-area">
-                                    <textarea id="text-area" name="text area" rows="4" cols="50" placeholder="description"></textarea>
+                                 <div class="form-group" style="width: 50%;">
+                                    <label for="exampleFormControlInput1">Description</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="description">
                                  </div>
-                                 <div class="price-category">
-                                    <div class="price">
-                                       <input type="number" name="price" id="price" placeholder="price">
+                                 <div class="form-group" style="display: flex;">
+                                    <div style="width: 20%;">
+                                       <label for="exampleFormControlInput1">Price</label>
+                                       <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="₱" name="price">
                                     </div>
-                                    <div class="category">
-                                       <label for="cars">Category</label>
-                                       <select name="category" id="category">
-                                          <option value="deodorant">DEODORANT</option>
-                                          <option value="hand-body-lotion">HAND AND BODY LOTION</option>
-                                          <option value="bath-soap">BATH SOAP</option>
-                                          <option value="jewelry">JEWELRY</option>
-                                       </select>
+                                    <div style="margin-left: 20px;" style="width: 30%;">
+                                       <div class="form-group">
+                                          <label>Category</label>
+                                          <select class="form-control" name="choices">
+                                             <option>Choices</option>
+                                             <option>HAND AND BODY LOTION</option>
+                                             <option>DEODORANT</option>
+                                             <option>JEWELRY</option>
+                                             <option>LIPSTICK</option>
+                                          </select>
+                                       </div>
                                     </div>
+                                 </div>
+                                 <div class="modal-footer" style="padding: 0.5rem;">
+                                    <button class="rounded-pill btn btn-primary" type="submit">ADD</button>
+                                    <button class="rounded-pill btn btn-danger" data-dismiss="modal">CANCEL</button>
                                  </div>
                               </form>
-                              <div class="modal-footer" style="padding: 0.5rem;">
-                                 <button class="rounded-pill btn btn-primary">ADD</button>
-                                 <button class="rounded-pill btn btn-danger" data-dismiss="modal">CANCEL</button>
-                              </div>
                            </div>
                         </div>
                      </div>
@@ -189,10 +205,11 @@
                         </div> -->
                      <!-- /.card-header -->
                      <div class="card-body">
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <table id="example" class="table table-striped table-bordered">
                            <thead>
                               <tr>
                                  <th>Product Code</th>
+                                 <th>Full Name</th>
                                  <th>Short Name</th>
                                  <th>Price</th>
                                  <th>Category</th>
@@ -203,10 +220,11 @@
                            <tbody>
                               <tr>
                                  <td>LO-01-WT</td>
+                                 <td>SKIN SO SOFT</td>
                                  <td>SSS LOTION</td>
                                  <td>₱150</td>
                                  <td>HAND AND BODY LOTION</td>
-                                 <td>INACTIVE</td>
+                                 <td>NOT AVAILABLE</td>
                                  <td class="actions-btn">
                                     <button class="rounded-pill btn btn-success">view</button>
                                     <button class="rounded-pill btn btn-primary">update</button>
@@ -214,10 +232,11 @@
                               </tr>
                               <tr>
                                  <td>WTH-01-WG</td>
+                                 <td>CHENILLE T-BAR</td>
                                  <td>CTB WATCH</td>
                                  <td>₱5000</td>
                                  <td>JEWELRY</td>
-                                 <td>ACTIVE</td>
+                                 <td>AVAILABLE</td>
                                  <td class="actions-btn">
                                     <button class="rounded-pill btn btn-success">view</button>
                                     <button class="rounded-pill btn btn-primary">update</button>
@@ -225,21 +244,23 @@
                               </tr>
                               <tr>
                                  <td>NAT-120g-GRPACL</td>
+                                 <td>Naturals Whitening</td>
                                  <td>NW SOAP</td>
                                  <td>₱99</td>
                                  <td>BATH SOAP</td>
-                                 <td>INACTIVE</td>
+                                 <td>NOT AVAILABLE</td>
                                  <td class="actions-btn">
                                     <button class="rounded-pill btn btn-success">view</button>
                                     <button class="rounded-pill btn btn-primary">update</button>
                                  </td>
                               </tr>
                               <tr>
-                                 <td>AV-01-IN</td>
-                                 <td>AVIM DEO</td>
+                                 <td>FF-01-APD</td>
+                                 <td>FEELIN FRESH ROLL ON COOLING</td>
+                                 <td>FFAPD DEODORANT</td>
                                  <td>₱170</td>
                                  <td>DEODORANT</td>
-                                 <td>ACTIVE</td>
+                                 <td>AVAILABLE</td>
                                  <td class="actions-btn">
                                     <button class="rounded-pill btn btn-success">view</button>
                                     <button class="rounded-pill btn btn-primary">update</button>
@@ -247,10 +268,23 @@
                               </tr>
                               <tr>
                                  <td>FF-02-APR</td>
+                                 <td>FEELIN FRESH ROLL ON GLOTA</td>
                                  <td>FFAP ROLL DEO</td>
                                  <td>₱180</td>
                                  <td>DEODORANT</td>
-                                 <td>ACTIVE</td>
+                                 <td>AVAILABLE</td>
+                                 <td class="actions-btn">
+                                    <button class="rounded-pill btn btn-success">view</button>
+                                    <button class="rounded-pill btn btn-primary">update</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>GT-02-CL</td>
+                                 <td>24K Gold LIPSTICK</td>
+                                 <td>24K LIPST</td>
+                                 <td>₱500</td>
+                                 <td>LIPSTICK</td>
+                                 <td>AVAILABLE</td>
                                  <td class="actions-btn">
                                     <button class="rounded-pill btn btn-success">view</button>
                                     <button class="rounded-pill btn btn-primary">update</button>
@@ -259,6 +293,7 @@
                            <tfoot>
                               <tr>
                                  <th>Product Code</th>
+                                 <th>Full Name</th>
                                  <th>Short Name</th>
                                  <th>Price</th>
                                  <th>Category</th>
@@ -274,25 +309,26 @@
                </div>
             </section>
          </div>
-         <!-- /.content-wrapper -->
-         <!-- Control Sidebar -->
-         <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-            <div class="p-3">
-               <h5>Title</h5>
-               <p>Sidebar content</p>
-            </div>
-         </aside>
-         <!-- /.control-sidebar -->
-         <!-- Main Footer -->
-         <footer class="main-footer light-footer" style="background-color: #083E52; border-top: none">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-               <!-- Anything you want -->
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2021 <a href="#">Gem's Avon POS SYSTEM</a>.</strong> All rights reserved.
-         </footer>
+      </section>
+      <!-- /.content-wrapper -->
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+         <!-- Control sidebar content goes here -->
+         <div class="p-3">
+            <h5>Title</h5>
+            <p>Sidebar content</p>
+         </div>
+      </aside>
+      <!-- /.control-sidebar -->
+      <!-- Main Footer -->
+      <footer class="main-footer light-footer" style="background-color: #083E52; border-top: none">
+         <!-- To the right -->
+         <div class="float-right d-none d-sm-inline">
+            <!-- Anything you want -->
+         </div>
+         <!-- Default to the left -->
+         <strong>Copyright &copy; 2021 <a href="#">Gem's Avon POS SYSTEM</a>.</strong> All rights reserved.
+      </footer>
    </div>
    <!-- ./wrapper -->
    <!-- REQUIRED SCRIPTS -->

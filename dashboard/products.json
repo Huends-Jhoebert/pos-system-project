@@ -1,0 +1,31 @@
+[
+	{	"product_name" :"FEELIN FRESH ROLL ON COOLING",
+		"product_code" : "FF-01-APD",
+		"product_price": 170
+	},
+	{
+		"product_name" :"FEELIN FRESH ROLL ON GLOTA",
+		"product_code" : "FF-02-APR",
+		"product_price": 180
+	},
+	{	
+		"product_name" :"24K Gold LIPSTICK",
+		"product_code" : "GT-02-CL",
+		"product_price": 500
+	},
+	{
+		"product_name" : "SKIN SO SOFT",
+		"product_code" : "LO-01-WT",
+		"product_price": 150
+	},
+	{
+		"product_name" : "Naturals Whitening",
+		"product_code" : "NAT-120g-GRPACL",
+		"product_price": 99
+	},
+	{
+		"product_name" : "CHENILLE T-BAR",
+		"product_code" : "WTH-01-WG",
+		"product_price": 500
+	}
+]

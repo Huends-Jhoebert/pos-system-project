@@ -157,7 +157,7 @@
                   <!-- number of products -->
                   <div class="col-lg-3 col-6">
                      <!-- small box -->
-                     <div class="small-box bg-maroon">
+                     <div class="small-box bg-maroon box-li" style="height:85%">
                         <div class="inner">
                            <h3>3</h3>
                            <h6>PRODUCTS</h6>
@@ -165,7 +165,7 @@
                         <div class="icon">
                            <i class="fas fa-box"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Show products <i class="fas fa-arrow-circle-right"></i></a>
+                        <!-- <a href="#" class="small-box-footer">Show products <i class="fas fa-arrow-circle-right"></i></a> -->
                      </div>
                   </div>
                   <!-- ./number of products -->
@@ -181,12 +181,12 @@
                         <div class="icon">
                            <i class="fas fa-cart-plus"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Add to cart <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="sales-is.php" class="small-box-footer">Add to cart <i class="fas fa-arrow-circle-right"></i></a>
                      </div>
                   </div>
                   <div class="col-lg-3 col-6">
                      <!-- small box -->
-                     <div class="small-box bg-lightblue">
+                     <div class="small-box bg-lightblue" style="height:85%">
                         <div class="inner">
                            <h3>5</h3>
                            <h6>PRODUCTS SOLD</h6>
@@ -194,7 +194,7 @@
                         <div class="icon">
                            <i class="fas fa-people-carry"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Sold products <i class="fas fa-arrow-circle-right"></i></a>
+                        <!-- <a href="#" class="small-box-footer">Sold products <i class="fas fa-arrow-circle-right"></i></a> -->
                      </div>
                   </div>
                   <!-- ./sales is -->
@@ -215,7 +215,7 @@
                   <!-- ./col -->
                   <div class="col-lg-3 col-6">
 
-                     <div class="small-box bg-olive">
+                     <div class="small-box bg-olive" style="height:85%">
                         <div class="inner">
                            <h3>₱500</h3>
                            <h6>AMOUNT EARNED</h6>
@@ -223,7 +223,7 @@
                         <div class="icon">
                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                      </div>
                   </div>
                   <!-- ./col -->
