@@ -41,21 +41,78 @@
 	<!-- modal form js -->
 	<!-- <script defer src="sales-is-form/form.js"></script> -->
 
+
 	<style>
-		.btn-modal {
-			box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		div.col-md-12 {
+			margin: 4px, 4px;
+			padding: 1rem;
+			height: 500px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			width: 100%;
 		}
 
-		.checkout {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
+		.content-info {
+			background: #f9f9f9;
+			background-size: cover !important;
+			background-position: top center !important;
+			background-repeat: no-repeat !important;
+			position: relative;
+
 		}
 
-		.subtotal {
-			margin-bottom: 0;
-			font-weight: 500;
-			margin-right: 0.8rem;
+		table {
+			width: 100%;
+			background: #fff;
+			border: 1px solid #dedede
+		}
+
+
+		table thead tr th {
+			padding: 20px;
+			border: 1px solid #dedede;
+			color: #000;
+		}
+
+		table.table-striped tbody tr:nth-of-type(odd) {
+			background: #f9f9f9
+		}
+
+		table.result-point tr td.number {
+			width: 100px;
+			position: relative
+		}
+
+		.text-left {
+			text-align: left !important
+		}
+
+		table tr td {
+			padding: 10px 20px;
+			border: 1px solid #dedede
+		}
+
+		table.result-point tr td .fa.fa-caret-up {
+			color: green
+		}
+
+		table.result-point tr td .fa {
+			font-size: 20px;
+			position: absolute;
+			right: 20px
+		}
+
+		table tr td {
+			padding: 10px 40px;
+			border: 1px solid #dedede
+		}
+
+		table tr td img {
+			max-width: 32px;
+			float: left;
+			margin-right: 11px;
+			margin-top: 1px;
+			border: 1px solid #dedede
 		}
 	</style>
 
@@ -70,12 +127,17 @@
 				<li class="nav-item">
 					<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars nav-fas" style="color: #fff"></i></a>
 				</li>
-				<!-- <div class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
+
+				<!-- <daiv class="custom-control custom-switch nav-link active" style=" display: inline; margin-left: 40px;">
                   <input type="checkbox" class="custom-control-input btn-switch" id="customSwitch1">
                   <label class="custom-control-label switch light-switch" for="customSwitch1"><i class="fas fa-lightbulb bulb" style="color:#fff"></i></label>
                   </div> -->
 			</ul>
 			<!-- sign out -->
+			<!-- <div class="history-bnt-container" style="text-align: center;">
+				<button class="btn btn-info" style="margin: 0 auto;"><i class="fas fa-history"></i> HISTORY</button>
+			</div> -->
+
 		</nav>
 		<!-- /.navbar -->
 		<!-- Main Sidebar Container -->
@@ -118,14 +180,14 @@
 									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
-							<a href="#" class="nav-link active side-icon" style="background-color: #39D3B0">
+							<a href="sales-is.php" class="nav-link active side-icon" style="background-color: #073546">
 								<i class="nav-icon fas fa-cash-register"></i>
 								<p>
 									Sales IS
 									<!-- <span class="right badge badge-danger">New</span> -->
 								</p>
 							</a>
-							<a href="reportGen.php" class="nav-link active side-icon" style="background-color: #073546">
+							<a href="#" class="nav-link active side-icon" style="background-color: #39D3B0">
 								<i class="nav-icon fas fa-chart-area"></i>
 								<p>
 									Report Generation
@@ -142,114 +204,115 @@
 		<!-- Content Wrapper. Contains page content -->
 		<section class="content">
 			<div class="content-wrapper main-content-white page-content" style="background-color:#073546">
-				<div class="content-header" style="padding-bottom: 0;">
-					<div class="container-fluid">
-						<div class="row mb-2 bg-info" style="padding: 1rem; border-radius: 10px">
-							<div class="col-sm-6">
-								<h5 style="color:#fff; font-size: 2rem">Buy Products</h5>
-							</div>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModal">
-								<i class="fas fa-cart-plus"></i> Buy A Product
-							</button>
-
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header" style="padding: 1.5rem; background-color: #39D3B0">
-											<h4 style="margin: 0 auto; color: #fff;">ADD NEW ORDER</h4>
-										</div>
-										<div class="modal-body">
-											<form class="modal-form" action="/" method="POST">
-												<div class=" form-group" style="margin:0;">
-													<label>Select A Product</label>
-													<select class="form-control form-category" name="choices">
-														<option>FEELIN FRESH ROLL ON COOLING</option>
-														<option>FEELIN FRESH ROLL ON GLOTA</option>
-														<option>24K Gold LIPSTICK</option>
-														<option>SKIN SO SOFT</option>
-														<option>Naturals Whitening</option>
-														<option>CHENILLE T-BAR</option>
-													</select>
-													<div style="width: 20%;">
-														<label for="exampleFormControlInput1">Quantity</label>
-														<input type="number" class="form-control quantity" id="exampleFormControlInput1" placeholder="Qty" name="quantity">
-													</div>
-												</div>
-											</form>
-											<div style="padding: 1rem 0.5rem; text-align:right">
-												<button class="btn btn-primary add-to-cart" data-dismiss="modal">ADD TO CART</button>
-												<button class="btn btn-danger" data-dismiss="modal">CANCEL</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /.row -->
-					</div>
-					<!-- /.container-fluid -->
-				</div>
 				<section class="content" style="padding: 1rem">
-					<div class="container-fluid">
-						<!-- Small boxes (Stat box) -->
-						<div class="card">
-							<!-- /.card-header -->
-							<div class="card-body">
-								<table class="table" style="margin-bottom: 20px;">
-									<thead class="thead-dark">
-										<tr>
-											<th scope="col">Product Name</th>
-											<th scope="col">Product Code</th>
-											<th scope="col">Quantity</th>
-											<th scope="col">Total Price</th>
-											<th scope="col">Action</th>
-										</tr>
-									</thead>
-									<tbody class="table-body">
+					<section class="content-info">
+						<div class="container paddings-mini">
+							<div class="row">
+								<div class="col-md-12">
+									<table class="table-striped table-responsive table-hover result-point" style="width: 100%;">
+										<thead class="point-table-head">
+											<tr>
+												<th class="text-center">No</th>
+												<th class="text-center" style="width: 25%;">Product</th>
+												<th class="text-center" style="width: 20%;">Products Sold</th>
+												<th class="text-center" style="width: 30%;">Short Name</th>
+												<th class="text-center" style="width: 20%;">Amount Earned</th>
+											</tr>
+										</thead>
+										<tbody class="text-center">
+											<tr>
+												<td class="text-left number">1 <i class="fa fa-caret-up" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/SSS400.jpeg" alt="product1"> <span>SSS400</span></td>
+												<td>256</td>
+												<td>SSS Kojic Hand</td>
+												<td>15860</td>
+											</tr>
+											<tr>
+												<td class="text-left number">2 <i class="fa fa-caret-up" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/NPCE750.jpg" alt="product2"><span>NPCE750</span> </td>
+												<td>250</td>
+												<td>NPCE Hand and Body Lotion</td>
+												<td>15800</td>
 
-									</tbody>
-								</table>
-								<div class="checkout">
-									<!-- Button trigger modal -->
-									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-										<i class="fas fa-check-double"></i> CHECKOUT
-									</button>
 
-									<!-- Modal -->
-									<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered" role="document">
-											<div class="modal-content">
-												<div>
+											</tr>
+											<tr>
+												<td class="text-left number">3 <i class="fa fa-caret-up" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/FFAPRODF40.jpg" alt="product3"><span>FFAPRODF40</span></td>
+												<td>235</td>
+												<td>FFAPROD Classic Floral</td>
+												<td>13554</td>
 
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body" style="text-align: center">
-													<!-- <h5>Are you sure to checkout this transaction?</h5> -->
-													<div class="form" style="width: 30%; margin: 0 auto;">
-														<div style="width: 100%;">
-															<label for="exampleFormControlInput1">Enter Payment</label>
-															<input type="number" class="form-control" id="exampleFormControlInput1" placeholder="₱" name="price">
-														</div>
-													</div>
-												</div>
 
-												<div class="modal-footer" style="margin: 0 auto;">
-													<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-													<button type="button" class="btn btn-success">Checkout</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<p class="subtotal">Subtotal:</p>
+											</tr>
+											<tr>
+												<td class="text-left number">4<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/FFAPRODG75.jpg" alt="product4"><span>FFAPRODG75</span> </td>
+												<td>232</td>
+												<td>FFAPROD Glutathione</td>
+												<td>13000</td>
+
+
+											</tr>
+											<tr>
+												<td class="text-left number">5 <i class="fa fa-caret-up" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/CTBW.jpg" alt="product5"><span>CTBW</span> </td>
+												<td>15</td>
+												<td>CTB Watch</td>
+												<td>12500</td>
+
+
+											</tr>
+											<tr>
+												<td class="text-left number">6<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/AGWBS.jpg" alt="product6"><span>AGWBS</span> </td>
+												<td>13</td>
+												<td>AGWB Set</td>
+												<td>12330</td>
+
+
+											</tr>
+											<tr>
+												<td class="text-left number">7<i class="fa fa-caret-down" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/PML36G.jpg" alt="product7"><span>PML36</span> </td>
+												<td>231</td>
+												<td>PM Lipstick 36G</td>
+												<td>11540</td>
+
+
+											</tr>
+											<tr>
+												<td class="text-left number">8<i class="fa fa-caret-up" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/TCBLS18G.jpg" alt="product8"><span>TCBLS18</span> </td>
+												<td>225</td>
+												<td>TCB Lip Stylo 18G</td>
+												<td>11500</td>
+
+
+											</tr>
+											<tr>
+												<td class="text-left number">9 <i class="fa fa-circle" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/NHRHO100.jpg" alt="product9"><span>NHRHO100</span> </td>
+												<td>215</td>
+												<td>NNR Hair Oil 100ml</td>
+												<td>10850</td>
+
+
+											</tr>
+											<tr>
+												<td class="text-left number">10<i class="fa fa-circle" aria-hidden="true"></i></td>
+												<td class="text-left"> <img src="product-is-images/NGASC180.jpg" alt="product10"><span>France</span> </td>
+												<td>204</td>
+												<td>NGA Shea Conditioner 180ml</td>
+												<td>10250</td>
+
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
-					</div>
+					</section>
 				</section>
 			</div>
 		</section>
@@ -321,7 +384,8 @@
 	<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
-	<script src="sales-is-form/form.js"></script>
+
+
 </body>
 
 </html>

@@ -217,7 +217,7 @@
 
                      <div class="small-box bg-olive" style="height:85%">
                         <div class="inner">
-                           <h3>₱500</h3>
+                           <h3>₱150,345</h3>
                            <h6>AMOUNT EARNED</h6>
                         </div>
                         <div class="icon">

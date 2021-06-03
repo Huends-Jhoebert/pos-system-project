@@ -38,6 +38,7 @@
    <!-- bootstrap 5 css -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+   <!-- update modal css -->
    <style>
       .actions-btn {
          display: flex;
@@ -46,6 +47,77 @@
 
       .actions-btn button:last-child {
          margin-left: 10px;
+      }
+
+      table thead,
+      table tfoot {
+         text-transform: uppercase;
+      }
+
+      td span {
+         padding: 0.5rem;
+      }
+
+      .quantity {
+         padding: 0.4rem 2.3rem;
+      }
+
+      .btn-update {
+         padding: 0rem 0.6rem
+      }
+
+      .available {
+         padding: 0.5rem 1.8rem;
+      }
+
+      .new-product {
+         padding: 0.5rem;
+      }
+
+      .image-container {
+         margin-left: 7%;
+         padding-top: 5px;
+      }
+
+      .update-modal-body form {
+         padding: 0;
+         /* margin: .5rem; */
+      }
+
+      .modal-update-footer {
+         margin-top: 0;
+      }
+
+      .image-container-fd img {
+         width: 100%;
+         display: block;
+      }
+
+      /* .container-fd {
+         display: flex;
+      } */
+
+      .fd-price {
+         /* border-bottom: 1px solid #DC3545;
+         border-top: 1px solid #DC3545;
+         color: #DC3545; */
+         padding: 0;
+         font-size: 1.5rem;
+      }
+
+      .short-name {
+         width: 60%;
+         font-size: 1rem;
+
+      }
+
+      div.card-body {
+         margin: 4px, 4px;
+         padding: 1rem;
+         height: 500px;
+         overflow-x: hidden;
+         overflow-y: auto;
+         width: 100%;
       }
    </style>
 </head>
@@ -114,7 +186,7 @@
                            <!-- <span class="right badge badge-danger">New</span> -->
                         </p>
                      </a>
-                     <a href="#" class="nav-link active side-icon" style="background-color: #073546">
+                     <a href="reportGen.php" class="nav-link active side-icon" style="background-color: #073546">
                         <i class="nav-icon fas fa-chart-area"></i>
                         <p>
                            Report Generation
@@ -135,12 +207,12 @@
             <div class="content-header">
                <div class="container-fluid">
                   <div class="row mb-2">
-                     <div class="col-sm-6">
-                        <h2 class="m-0 dashboard-main" style="color:#fff; font-size: 2rem">PRODUCT LIST</h2>
+                     <div class="col-sm-6" style="margin-top: 0.6rem;">
+                        <h2 class="m-0 dashboard-main" style="color:#fff; font-size: 1.5rem;">PRODUCT LIST</h2>
                         <!-- Button trigger modal -->
                      </div>
                      <!-- Large modal -->
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add New Product</button>
+                     <button type="button" class="btn btn-primary new-product" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle"></i> New Product</button>
 
                      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -154,12 +226,12 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput1" name="productCode">
                                  </div>
                                  <div class="form-group" style="width: 50%;">
-                                    <label for="exampleFormControlInput1">Short Name</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="shortName">
+                                    <label for="exampleFormControlInput1">Full Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="fullName">
                                  </div>
                                  <div class="form-group" style="width: 50%;">
-                                    <label for="exampleFormControlInput1">Description</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="description">
+                                    <label for="exampleFormControlInput1">Short Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="shortName">
                                  </div>
                                  <div class="form-group" style="display: flex;">
                                     <div style="width: 20%;">
@@ -175,13 +247,24 @@
                                              <option>DEODORANT</option>
                                              <option>JEWELRY</option>
                                              <option>LIPSTICK</option>
+                                             <option>HAIR CARE</option>
                                           </select>
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="modal-footer" style="padding: 0.5rem;">
-                                    <button class="rounded-pill btn btn-primary" type="submit">ADD</button>
-                                    <button class="rounded-pill btn btn-danger" data-dismiss="modal">CANCEL</button>
+                                 <div class="form-group" style="display: flex;">
+                                    <div class="form-group" style="width: 10%;">
+                                       <label for="exampleFormControlInput1">Quantity</label>
+                                       <input type="number" class="form-control" id="exampleFormControlInput1" name="quantity">
+                                    </div>
+                                    <div class="form-group image-container" style="width: 50%;">
+                                       <label for="exampleFormControlFile1">Select Image</label>
+                                       <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+                                    </div>
+                                 </div>
+                                 <div class="modal-footer" style="padding: 0.5rem; margin: 0;">
+                                    <button class="btn btn-primary" type="submit">ADD</button>
+                                    <button class="btn btn-danger" data-dismiss="modal">CANCEL</button>
                                  </div>
                               </form>
                            </div>
@@ -205,56 +288,219 @@
                         </div> -->
                      <!-- /.card-header -->
                      <div class="card-body">
-                        <table id="example" class="table table-striped table-bordered">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
                            <thead>
                               <tr>
-                                 <th>Product Code</th>
-                                 <th>Full Name</th>
-                                 <th>Short Name</th>
+                                 <th>Code</th>
                                  <th>Price</th>
                                  <th>Category</th>
+                                 <th>Quantity</th>
                                  <th>Status</th>
                                  <th>Actions</th>
                               </tr>
                            </thead>
                            <tbody>
                               <tr>
-                                 <td>LO-01-WT</td>
-                                 <td>SKIN SO SOFT</td>
-                                 <td>SSS LOTION</td>
-                                 <td>₱150</td>
-                                 <td>HAND AND BODY LOTION</td>
-                                 <td>NOT AVAILABLE</td>
+                                 <td class="align-middle"><span class="align-middle">NGASC180</span></td>
+                                 <td class="align-middle"><span class="align-middle">₱150</span></td>
+                                 <td class="align-middle"><span class="align-middle">HAIR CARE</span></td>
+                                 <td class="align-middle"><span class="bg-maroon align-middle quantity">0</span></td>
+                                 <td class="align-middle"><span class="bg-danger align-middle">NOT AVAILABLE</span></td>
                                  <td class="actions-btn">
-                                    <button class="rounded-pill btn btn-success">view</button>
-                                    <button class="rounded-pill btn btn-primary">update</button>
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <!-- <button class="btn btn-success">Launch demo modal</button> -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
                                  </td>
                               </tr>
                               <tr>
-                                 <td>WTH-01-WG</td>
-                                 <td>CHENILLE T-BAR</td>
-                                 <td>CTB WATCH</td>
-                                 <td>₱5000</td>
-                                 <td>JEWELRY</td>
-                                 <td>AVAILABLE</td>
+                                 <td class="align-middle"><span class="align-middle">FFAPRODG75</span></td>
+                                 <td class="align-middle"><span class="align-middle">₱46</span></td>
+                                 <td class="align-middle"><span class="align-middle">DEODORANT</span></td>
+                                 <td class="align-middle"><span class="bg-maroon align-middle quantity">0</span></td>
+                                 <td class="align-middle"><span class="bg-danger align-middle">NOT AVAILABLE</span></td>
                                  <td class="actions-btn">
-                                    <button class="rounded-pill btn btn-success">view</button>
-                                    <button class="rounded-pill btn btn-primary">update</button>
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <!-- <button class="btn btn-success">Launch demo modal</button> -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
                                  </td>
                               </tr>
                               <tr>
-                                 <td>NAT-120g-GRPACL</td>
-                                 <td>Naturals Whitening</td>
-                                 <td>NW SOAP</td>
-                                 <td>₱99</td>
-                                 <td>BATH SOAP</td>
-                                 <td>NOT AVAILABLE</td>
+                                 <td class="align-middle"><span class="align-middle">PML36</span></td>
+                                 <td class="align-middle"><span class="align-middle">₱149</span></td>
+                                 <td class="align-middle"><span class="align-middle">LIPSTICK</span></td>
+                                 <td class="align-middle"><span class="bg-maroon align-middle quantity">0</span></td>
+                                 <td class="align-middle"><span class="bg-danger align-middle">NOT AVAILABLE</span></td>
                                  <td class="actions-btn">
-                                    <button class="rounded-pill btn btn-success">view</button>
-                                    <button class="rounded-pill btn btn-primary">update</button>
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <!-- <button class="btn btn-success">Launch demo modal</button> -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
                                  </td>
                               </tr>
                               <tr>
+                                 <td class="align-middle">CTB WATCH</td>
+                                 <td class="align-middle">₱5000</td>
+                                 <td class="align-middle">JEWELRY</td>
+                                 <td class="align-middle"><span class="bg-info align-middle quantity">2</span></td>
+                                 <td class="align-middle"><span class="bg-lightblue align-middle available">AVAILABLE</span></td>
+                                 <td class="actions-btn">
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="align-middle">AGWBS</td>
+                                 <td class="align-middle">₱1899</td>
+                                 <td class="align-middle">JEWELRY</td>
+                                 <td class="align-middle"><span class="bg-info align-middle quantity">2</span></td>
+                                 <td class="align-middle"><span class="bg-lightblue align-middle available">AVAILABLE</span></td>
+                                 <td class="actions-btn">
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="align-middle">SSS400</td>
+                                 <td class="align-middle">₱349</td>
+                                 <td class="align-middle">Hand and Body Lotion</td>
+                                 <td class="align-middle"><span class="bg-info align-middle quantity">15</span></td>
+                                 <td class="align-middle"><span class="bg-lightblue align-middle available">AVAILABLE</span></td>
+                                 <td class="actions-btn">
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="align-middle">NHRHO100</td>
+                                 <td class="align-middle">₱190</td>
+                                 <td class="align-middle">Hair Care</td>
+                                 <td class="align-middle"><span class="bg-info align-middle quantity">10</span></td>
+                                 <td class="align-middle"><span class="bg-lightblue align-middle available">AVAILABLE</span></td>
+                                 <td class="actions-btn">
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="align-middle">NPCE750</td>
+                                 <td class="align-middle">₱251</td>
+                                 <td class="align-middle">Hand and Body Lotion</td>
+                                 <td class="align-middle"><span class="bg-info align-middle quantity">8</span></td>
+                                 <td class="align-middle"><span class="bg-lightblue align-middle available">AVAILABLE</span></td>
+                                 <td class="actions-btn">
+                                    <button class="btn btn-primary btn-update" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalFullDetails">
+                                       Details
+                                    </button>
+                                 </td>
+                              </tr>
+                              <!-- Modal update-->
+                              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                 <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content update-modal">
+                                       <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLongTitle">Update This Product</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                          </button>
+                                       </div>
+                                       <div class="modal-body update-modal-body">
+                                          <form>
+                                             <div class="form-group" style="width: 50%;">
+                                                <label for="exampleFormControlInput1">Product Code</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" name="productCode">
+                                             </div>
+                                             <div class="form-group" style="width: 50%;">
+                                                <label for="exampleFormControlInput1">Full Name</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" name="fullName">
+                                             </div>
+                                             <div class="form-group" style="width: 50%;">
+                                                <label for="exampleFormControlInput1">Short Name</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" name="shortName">
+                                             </div>
+                                             <div class="form-group" style="display: flex;">
+                                                <div style="width: 20%;">
+                                                   <label for="exampleFormControlInput1">Price</label>
+                                                   <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="₱" name="price">
+                                                </div>
+                                                <div style="margin-left: 20px;" style="width: 30%;">
+                                                   <div class="form-group">
+                                                      <label>Category</label>
+                                                      <select class="form-control" name="choices">
+                                                         <option>Choices</option>
+                                                         <option>HAND AND BODY LOTION</option>
+                                                         <option>DEODORANT</option>
+                                                         <option>JEWELRY</option>
+                                                         <option>LIPSTICK</option>
+                                                         <option>HAIR CARE</option>
+                                                      </select>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group" style="display: flex;">
+                                                <div class="form-group" style="width: 10%;">
+                                                   <label for="exampleFormControlInput1">Quantity</label>
+                                                   <input type="number" class="form-control" id="exampleFormControlInput1" name="quantity">
+                                                </div>
+                                                <div class="form-group image-container" style="width: 50%;">
+                                                   <label for="exampleFormControlFile1">Select Image</label>
+                                                   <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+                                                </div>
+                                             </div>
+                                             <div class="modal-footer modal-update-footer" style="padding: 0.5rem;">
+                                                <button class="btn btn-primary" type="submit">ADD</button>
+                                                <button class="btn btn-danger" data-dismiss="modal">CANCEL</button>
+                                             </div>
+                                          </form>
+                                       </div>
+                                       <!-- <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                       </div> -->
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- Modal full details-->
+                              <div class="modal fade" id="exampleModalFullDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                 <div class="modal-dialog modal-md" role="document">
+                                    <div class="modal-content">
+                                       <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLongTitle" style="text-transform: uppercase; text-align:center;">Naturals Golden Apricot and Shea Conditioner 180ml</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                          </button>
+                                       </div>
+                                       <div class="modal-body">
+                                          <div class="container-fd">
+                                             <div class="image-container-fd">
+                                                <img src="product-is-images/NGASC180.jpg" alt="product">
+                                                <p class="align-middle available bg-info fd-price" style="width:23%; margin: 0 auto; text-align:center;">₱150</p>
+                                                <p class="align-middle available bg-danger short-name" style=" margin: .5rem auto; text-align:center;">NGA Shea Conditioner 180ml</p>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!-- <div class="modal-footer">
+                                          <button class="btn btn-primary" type="submit">ADD</button>
+                                          <button class="btn btn-primary" data-dismiss="modal">Back</button>
+                                       </div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- <tr>
                                  <td>FF-01-APD</td>
                                  <td>FEELIN FRESH ROLL ON COOLING</td>
                                  <td>FFAPD DEODORANT</td>
@@ -262,8 +508,8 @@
                                  <td>DEODORANT</td>
                                  <td>AVAILABLE</td>
                                  <td class="actions-btn">
-                                    <button class="rounded-pill btn btn-success">view</button>
-                                    <button class="rounded-pill btn btn-primary">update</button>
+                                    <button class="btn btn-success">View</button>
+                                    <button class="btn btn-primary">Update</button>
                                  </td>
                               </tr>
                               <tr>
@@ -274,8 +520,8 @@
                                  <td>DEODORANT</td>
                                  <td>AVAILABLE</td>
                                  <td class="actions-btn">
-                                    <button class="rounded-pill btn btn-success">view</button>
-                                    <button class="rounded-pill btn btn-primary">update</button>
+                                    <button class="btn btn-success">View</button>
+                                    <button class="btn btn-primary">Update</button>
                                  </td>
                               </tr>
                               <tr>
@@ -286,17 +532,16 @@
                                  <td>LIPSTICK</td>
                                  <td>AVAILABLE</td>
                                  <td class="actions-btn">
-                                    <button class="rounded-pill btn btn-success">view</button>
-                                    <button class="rounded-pill btn btn-primary">update</button>
+                                    <button class="btn btn-success">View</button>
+                                    <button class="btn btn-primary">Update</button>
                                  </td>
-                              </tr>
+                              </tr> -->
                            <tfoot>
                               <tr>
-                                 <th>Product Code</th>
-                                 <th>Full Name</th>
-                                 <th>Short Name</th>
+                                 <th>Code</th>
                                  <th>Price</th>
                                  <th>Category</th>
+                                 <th>Quantity</th>
                                  <th>Status</th>
                                  <th>Actions</th>
                               </tr>

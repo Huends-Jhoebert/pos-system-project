@@ -1,0 +1,42 @@
+.mc-month-year {
+	&__preview {
+		position: absolute;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		align-items: center;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 90%;
+		margin: 0 5%;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+		background-color: #f5f5f6;
+		// transition: all 150ms linear;
+
+		&--opened {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+	&__cell {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30%;
+		height: 20%;
+		text-align: center;
+		border-radius: 10px;
+		cursor: pointer;
+
+		&--picked {
+			background-color: $dark-bg-color;
+		}
+		&--inactive {
+			color: $inactive-date-color;
+			cursor: default;
+		}
+	}
+}

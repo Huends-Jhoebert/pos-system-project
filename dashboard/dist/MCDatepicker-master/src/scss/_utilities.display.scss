@@ -1,0 +1,9 @@
+/*============================================*/
+/*                Display Utility             */
+/*============================================*/
+
+.u-display-none {
+	@include for-desktop {
+		display: none !important;
+	}
+}
